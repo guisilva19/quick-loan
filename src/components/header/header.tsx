@@ -1,13 +1,29 @@
 import Link from "next/link";
 import { Avatar, AvatarIcon, Tooltip } from "@nextui-org/react";
-import { LogOut, Settings } from "lucide-react";
+import {
+  LogOut,
+  Settings,
+  AlignRight,
+  FileBarChart,
+  CreditCard,
+  BadgeDollarSign,
+} from "lucide-react";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuGroup,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 const Header: React.FC = () => {
   return (
     <>
       <header className="w-screen h-16 to-[#9377EF] from-[#6e4ed6] bg-gradient-to-r px-10 flex justify-between items-center">
         <h1 className="text-white font-bold text-xl">Loan</h1>
-        <nav className="flex gap-20">
+        <nav className="hidden lg:flex gap-20">
           <ul className="flex gap-2">
             <Link
               href="/deposito"
@@ -31,7 +47,7 @@ const Header: React.FC = () => {
           <div>
             <Tooltip
               placement="bottom"
-              content={<Menu />}
+              content={<Profile />}
               delay={0}
               className="bg-transparent shadow-none"
             >
@@ -45,12 +61,15 @@ const Header: React.FC = () => {
             </Tooltip>
           </div>
         </nav>
+        <nav className="flex lg:hidden">
+          <Menu />
+        </nav>
       </header>
     </>
   );
 };
 
-const Menu = () => {
+const Profile = () => {
   return (
     <>
       <ul className="bg-white w-64 shadow-lg rounded-lg">
@@ -65,6 +84,44 @@ const Menu = () => {
           <p>Sair</p>
         </li>
       </ul>
+    </>
+  );
+};
+
+const Menu = () => {
+  return (
+    <>
+      <DropdownMenu>
+        <DropdownMenuTrigger asChild>
+          <AlignRight className="text-white w-10 h-10" />
+        </DropdownMenuTrigger>
+        <DropdownMenuContent className="w-56">
+          <DropdownMenuLabel>Guilherme Silva Fernandes</DropdownMenuLabel>
+          <DropdownMenuSeparator />
+          <DropdownMenuGroup>
+            <DropdownMenuItem>
+              <BadgeDollarSign className="mr-2 h-4 w-4" />
+              <span>Pix</span>
+            </DropdownMenuItem>
+            <DropdownMenuItem>
+              <CreditCard className="mr-2 h-4 w-4" />
+              <span>Deposito</span>
+            </DropdownMenuItem>
+            <DropdownMenuItem>
+              <FileBarChart className="mr-2 h-4 w-4" />
+              <span>Histórico</span>
+            </DropdownMenuItem>
+            <DropdownMenuItem>
+              <Settings className="mr-2 h-4 w-4" />
+              <span>Configurações</span>
+            </DropdownMenuItem>
+            <DropdownMenuItem>
+              <LogOut className="mr-2 h-4 w-4" />
+              <span>Sair</span>
+            </DropdownMenuItem>
+          </DropdownMenuGroup>
+        </DropdownMenuContent>
+      </DropdownMenu>
     </>
   );
 };
