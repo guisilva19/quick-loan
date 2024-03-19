@@ -1,11 +1,15 @@
+"use client";
 import Header from "@/components/header/header";
+import { NextUIProvider } from "@nextui-org/react";
 
 export default function Home() {
   return (
     <>
-      <div>
-        <Header />
-      </div>
+      <NextUIProvider>
+        <div>
+          <Header />
+        </div>
+      </NextUIProvider>
     </>
   );
 }
