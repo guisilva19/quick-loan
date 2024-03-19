@@ -1,5 +1,5 @@
 "use client";
-import FormLogin from "@/components/Login/Login";
+import FormLogin from "@/components/login/login";
 import Image from "next/image";
 import background from "../assets/background/background.svg";
 import { NextUIProvider } from "@nextui-org/react";

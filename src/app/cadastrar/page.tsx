@@ -1,6 +1,6 @@
 import Image from "next/image";
 import background from "../../assets/background/back.svg";
-import FormRegister from "@/components/Register/Register";
+import FormRegister from "@/components/register/register";
 
 export default function Login() {
   return (
