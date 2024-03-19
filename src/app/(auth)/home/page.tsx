@@ -7,7 +7,6 @@ export default function Home() {
     <>
       <NextUIProvider>
         <div>
-          <Header />
         </div>
       </NextUIProvider>
     </>
